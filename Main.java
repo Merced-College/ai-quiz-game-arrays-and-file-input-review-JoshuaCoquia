@@ -2,7 +2,7 @@
 /*
 Name: Joshua Coquia
 Date: May 18, 2026
-Program Description: 
+Program Description: Run a short quiz, sourcing questions from a .csv file.
 */
 import java.io.File;
 import java.io.FileNotFoundException;
