@@ -1,3 +1,9 @@
+
+/*
+Name: Joshua Coquia
+Date: May 18, 2026
+Program Description: 
+*/
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
