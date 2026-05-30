@@ -66,6 +66,26 @@ public class Main {
         System.out.println("Quiz complete!");
         System.out.println("Your final score is: " + score + " out of " + questions.length);
 
+        // NOTE: Start of my enhancement.
+        // Enhancement: Display a custom message based on the final score.
+        double finalScorePercentage = (double) score / questions.length * 100d;
+        String finalMessage = "";
+
+        if (finalScorePercentage == 100d) {
+            finalMessage = "Congrats on getting 100%!";
+        } else if (finalScorePercentage >= 90d) {
+            finalMessage = "Great job!";
+        } else if (finalScorePercentage >= 80d) {
+            finalMessage = "Good job!";
+        } else if (finalScorePercentage >= 70d) {
+            finalMessage = "You passed!";
+        } else {
+            finalMessage = "Try again!";
+        }
+
+        System.out.println(finalMessage);
+        // NOTE: End of my enhancement.
+
         input.close();
     }
 
