@@ -4,6 +4,7 @@ Name: Joshua Coquia
 Date: May 18, 2026
 Program Description: Run a short quiz, sourcing questions from a .csv file.
 */
+// AI was NOT used in this assignment.
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -59,31 +60,47 @@ public class Main {
         input.close();
     }
 
+    // 4. Declaration for a method that populates the
+    // questions, answers, and correctAnswers arrays
+    // based on a given CSV file.
     public static void readQuizFile(String[] questions, String[][] answers, int[] correctAnswers) {
         try {
+            // 5. Grab a file with the specific name mentioned in the quotes.
+            // This file should be in the same directory as this Main.java file.
             File file = new File("ai_quiz_questions.csv");
             Scanner fileReader = new Scanner(file);
 
+            // 6. Go to first line of file.
+            // This is to skip the CSV headers present in the first line of the file
+            // when the file actually gets read over in the while loop below.
             fileReader.nextLine();
-
             int index = 0;
 
+            // 7. Iterate over the quiz questions file, stopping when either
+            // the CSV file ends or when the questions array is fully populated.
             while (fileReader.hasNextLine() && index < questions.length) {
+                // 8. Parse the CSV file into lines and comma separated values (hence CSV).
                 String line = fileReader.nextLine();
                 String[] data = line.split(",");
 
+                // 9. Set the current question to the question in the current line.
                 questions[index] = data[0];
 
+                // 10. For the number of choices set by the config var at the top,
+                // add answers into the answers array based on what's in the CSV file.
                 for (int i = 0; i < NUMBER_OF_CHOICES; i++) {
                     answers[index][i] = data[i + 1];
                 }
 
+                // 11. Always set the correct answer for each question to the first answer.
                 correctAnswers[index] = 0;
                 index++;
             }
 
             fileReader.close();
 
+            // 12. If the CSV file specified near the beginning of the method declaration
+            // doesn't exist, state in STDOUT that it cannot be found.
         } catch (FileNotFoundException e) {
             System.out.println("The quiz file could not be found.");
         }
