@@ -10,14 +10,22 @@ import java.util.Scanner;
 
 public class Main {
 
+    // 1. Config Variables
+    // Edit these to change the number of questions
+    // and the number of answer choices per question.
     public static final int NUMBER_OF_QUESTIONS = 10;
     public static final int NUMBER_OF_CHOICES = 4;
 
     public static void main(String[] args) {
+        // 2. These arrays store the which questions are will be presented to the user,
+        // what answer options will be presented to the user for each question,
+        // and finally the correct answer to each question.
         String[] questions = new String[NUMBER_OF_QUESTIONS];
         String[][] answers = new String[NUMBER_OF_QUESTIONS][NUMBER_OF_CHOICES];
         int[] correctAnswers = new int[NUMBER_OF_QUESTIONS];
 
+        // 3. Abstracts away the logic for reading quiz questions from a file.
+        // Go to method definition for next bullet points in numeric order.
         readQuizFile(questions, answers, correctAnswers);
 
         Scanner input = new Scanner(System.in);
