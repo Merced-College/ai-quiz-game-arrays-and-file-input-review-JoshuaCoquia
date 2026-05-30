@@ -26,34 +26,43 @@ public class Main {
         int[] correctAnswers = new int[NUMBER_OF_QUESTIONS];
 
         // 3. Abstracts away the logic for reading quiz questions from a file.
-        // Go to method definition for next bullet points in numeric order.
+        // NOTE: Go to method definition for next bullet points in numeric order.
         readQuizFile(questions, answers, correctAnswers);
 
         Scanner input = new Scanner(System.in);
+
+        // 13. Before the quiz starts, initalize and set the user's score to 0.
         int score = 0;
 
+        // 14. Introduce the user to the game.
         System.out.println("Welcome to the AI Quiz Game!");
         System.out.println("Choose the correct answer by entering 1, 2, 3, or 4.\n");
 
+        // 15. When quizzing, iterate over every question in the questions array.
         for (int i = 0; i < questions.length; i++) {
             System.out.println("Question " + (i + 1) + ": " + questions[i]);
 
+            // 16. For each question, print out each possible answer.
             for (int j = 0; j < answers[i].length; j++) {
                 System.out.println((j + 1) + ". " + answers[i][j]);
             }
 
+            // 17. Give the user the opportunity to answer.
             System.out.print("Your answer: ");
             int userAnswer = input.nextInt() - 1;
 
+            // 18. If the user is correct, tell them and increase their score.
             if (userAnswer == correctAnswers[i]) {
                 System.out.println("Correct!\n");
                 score++;
             } else {
+                // 19. If incorrect, tell the user the correct answer.
                 System.out.println("Incorrect.");
                 System.out.println("The correct answer was: " + answers[i][correctAnswers[i]] + "\n");
             }
         }
 
+        // 20. When the quiz ends, tell the user their final score.
         System.out.println("Quiz complete!");
         System.out.println("Your final score is: " + score + " out of " + questions.length);
 
